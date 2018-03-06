@@ -1,4 +1,5 @@
 import csv
+import inventory
 
 exImport = open("Data/Inventory/InventoryImportTest.csv")
 exReader = csv.reader(exImport)
@@ -13,7 +14,7 @@ imFoil = header.index('Foil')
 
 
 # iterates through subsequent rows of data
-def checkfoil(param):
+def checkFoil(param):
     if param == "Yes":
         result = "Foil"
     else:
@@ -21,18 +22,9 @@ def checkfoil(param):
     return result
 
 
-class Card:
-    def __init__(self, count, name, edition, foil):
-        self.count = count
-        self.name = name
-        self.edition = edition
-        self.foil = foil
-
-
 for row in exReader:
-    # print(", ".join([row[imCount], row[imName], row[imEdition], checkfoil(row[imFoil])]))
-    inventory = Card(row[imCount], row[imName], row[imEdition], checkfoil(row[imFoil]))
-    print(", ".join([inventory.count, inventory.name, inventory.edition, inventory.foil]))
+    currentCard = inventory.Card(row[imCount], row[imName], row[imEdition], checkFoil(row[imFoil]))
+    print(currentCard.showInfo())
 
 
 
