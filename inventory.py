@@ -7,3 +7,6 @@ class Card:
 
     def showInfo(self):
         return "{}, {}, {}, {}".format(self.count, self.name, self.edition, self.foil)
+
+    def versions(self):
+        return "{} in {}".format(self.count, self.edition)

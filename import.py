@@ -24,7 +24,7 @@ def checkFoil(param):
 
 for row in exReader:
     currentCard = inventory.Card(row[imCount], row[imName], row[imEdition], checkFoil(row[imFoil]))
-    print(currentCard.showInfo())
+    # print(currentCard.showInfo())
 
 
 
